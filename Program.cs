@@ -136,7 +136,14 @@ namespace Programming_120_Final
         static void StudentLookup()//....................................................................       ......3 Student Kookup ......
         {
             Console.WriteLine("Display student Information");
-            Console.ReadLine();
+            Console.WriteLine("Please enter Student's First name");
+            string fname =Console.ReadLine();
+            Console.WriteLine("Please enter Student's  Last name");
+            string lname = Console.ReadLine();
+
+      
+
+
 
         }
 
@@ -146,9 +153,9 @@ namespace Programming_120_Final
             string lname = studentLastName[index];
             double csiGrade = csiGrades[index];
             double gened = genEdGrades[index];
+            double avg = csiGrades[index] + genEdGrades[index] /2;
 
-
-            Console.WriteLine($"{index}{fname}{lname} - CSI Grade: {csiGrade} - Gen Ed: {gened}");
+            Console.WriteLine($"{index}{fname}{lname} - CSI Grade: {csiGrade} - Gen Ed: {gened} - GradeAverage: {avg}");
         }   
 
         static void DisplayStudentwithGrades(double min,double max)
@@ -169,22 +176,40 @@ namespace Programming_120_Final
         static double GradeAverage (double csi, double gen)//.......................................................calculation of average (math)
         {
 
-            double average = (csi + gen );
+            double average = (csi + gen/2);
 
             return average;
         }
 
-        
-       
+        static int StudentIndex(string fName, string lName)
+        {
+            for(int i =0; i <numberOfStudents; i++)
+            {
+
+                if (studentFirstName[i] == fName && studentLastName[i] == lName)
+                {
+                    return i;
+
+                }//end of if
+
+            }//end of loop
+
+            return -1; // if not found, return -1
+        }
+
+
+
+
+
 
 
         static void UpdateStudentInfo()//............................................................................4 -Student Lookup........
         {
-            //Console.WriteLine("Update Student Information:");
-            //Console.WriteLine("1.By Student Index");
-            //Console.WriteLine("2.By Student Name");
-            //Console.WriteLine("Option");
-            //Console.ReadLine();
+            Console.WriteLine("Update Student Information:");
+            Console.WriteLine("1.By Student Index");
+            Console.WriteLine("2.By Student Name");
+            Console.WriteLine("Option");
+            Console.ReadLine();
         }
 
         static void ViewStudentWithGrades()// ...............................................................5 
